@@ -1,11 +1,8 @@
 const express = require("express");
 const notesController = require("../controllers/note.controller.js");
-const authenticator = require("../middleware/auth.user.middleware.js");
 
 const noteRoutes = express.Router();
 
-// middleware for authenticator :
-noteRoutes.use(authenticator);
 
 // route for get all notes for particular user :
 noteRoutes.get("/", notesController.getAllNotes);

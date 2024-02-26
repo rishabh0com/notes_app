@@ -2,7 +2,7 @@ const express = require("express");
 const connection = require("./config/database");
 const noteRoutes = require("./src/routes/note.routes.js");
 const moment = require("moment");
-const notesRoutes = require("./src/routes/note.routes");
+const userRoutes = require("./src/routes/user.routes.js");
 
 const app = express();
 const PORT = 4000;
@@ -10,8 +10,11 @@ const PORT = 4000;
 // middleware :
 app.use(express.json());
 app.use((req, res, next) => {
-  console.log(`Method : ${req.method} -> Path : ${req.url} -> On:  ${moment().format("hh:mm:ss")}`);
-  console.log(req);
+  console.log(
+    `Method : ${req.method} -> Path : ${req.url} -> On:  ${moment().format(
+      "hh:mm:ss"
+    )}`
+  );
   next();
 });
 
@@ -21,6 +24,8 @@ app.get("/", (req, res) => {
 });
 // notes routes :
 app.use("/notes", noteRoutes);
+//user routes :
+app.use("/users", userRoutes);
 
 // run the server :
 app.listen(PORT, async () => {
