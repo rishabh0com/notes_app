@@ -3,6 +3,7 @@ const connection = require("./config/database");
 const noteRoutes = require("./src/routes/note.routes.js");
 const moment = require("moment");
 const userRoutes = require("./src/routes/user.routes.js");
+const cors = require("cors");
 
 const app = express();
 const PORT = 4000;
@@ -17,6 +18,14 @@ app.use((req, res, next) => {
   );
   next();
 });
+// cors
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    method: "GET, POST, PUT, DELETE",
+    credentials: true,
+  })
+);
 
 // routes
 app.get("/", (req, res) => {
