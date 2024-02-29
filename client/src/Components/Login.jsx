@@ -2,7 +2,6 @@ import React from "react";
 
 const Login = () => {
   const API_URL = import.meta.env.VITE_API_URL;
-    console.log(response);
 
   return (
     <div className="flex justify-center items-center h-screen">
