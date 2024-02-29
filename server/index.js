@@ -98,8 +98,8 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:5173/",
-    failureRedirect: "http://localhost:5173/login",
+    successRedirect: process.env.SUCCESS_REDIRECT_URL,
+    failureRedirect: process.env.FAILURE_REDIRECT_URL,
   })
 );
 
