@@ -14,28 +14,36 @@ const Login = () => {
         <h2 className="text-2xl text-center font-bold mb-4">Login</h2>
         <form className="flex flex-col gap-4">
           <input
+            disabled={true}
             type="text"
             placeholder="Email"
             className="p-2 border border-gray-400 rounded-md"
           />
           <input
+            disabled={true}
             type="password"
             placeholder="Password"
             className="p-2 border border-gray-400 rounded-md"
           />
-          <button className="bg-blue-500 text-white rounded px-4 py-2">
+          <button
+            disabled={true}
+            className="bg-blue-500 text-white rounded px-4 py-2">
             Login
           </button>
         </form>
         <div className="text-center my-4">or</div>
-        <GoogleLogin
-          onSuccess={(credentialResponse) => {
-            console.log(credentialResponse);
-          }}
-          onError={() => {
-            console.log("Login Failed");
-          }}
-        />{" "}
+        <button
+          className=" bg-white rounded px-4 py-2 font-bold "
+          onClick={() => {
+            window.open("http://localhost:4000/auth/google/callback", "_self");
+          }}>
+          <img
+            className="w-6 h-6 inline-block mr-2"
+            src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
+            alt=""
+          />
+          Sign In with Google
+        </button>
       </div>
     </div>
   );
