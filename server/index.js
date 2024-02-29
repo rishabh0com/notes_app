@@ -16,6 +16,11 @@ require("dotenv").config();
 const app = express();
 const PORT = 4000;
 
+// default request
+app.get("/", (req, res) => {
+  res.send("This is home page~");
+});
+
 // middleware :
 app.use(express.json());
 app.use((req, res, next) => {
