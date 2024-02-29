@@ -6,20 +6,17 @@ import NotesList from "./Components/NoteList";
 import Popup from "./Components/Popup";
 import LoginPage from "./Components/Login";
 import Login from "./Components/Login";
+import { BrowserRouter } from "react-router-dom";
+import AllRoutes from "./Routes/routes";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <BrowserRouter>
       <Navbar />
-      <div className="lg:flex w-100  justify-around ">
-        <CreateNote />
-        <NotesList />
-      </div>
-      <Popup />
-      <Login />
-    </>
+      <AllRoutes />
+    </BrowserRouter>
   );
 }
 
