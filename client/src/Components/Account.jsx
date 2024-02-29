@@ -1,11 +1,14 @@
 import React from "react";
+import demoImg from "../assets/demoAcc.png";
+import { useSelector } from "react-redux";
 
 const AccountPage = () => {
+  const auth = useSelector((state) => state.auth.isAuth);
   return (
     <div className="flex items-center justify-center  bg-white h-80">
       <div className="bg-blue-600 text-white p-8 rounded-lg text-center">
         <img
-          src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?t=st=1709109447~exp=1709113047~hmac=01f007057696dc9e48ae1c288f6ae2c94e980cd7c6c997b8886f66035fa2bfd3&w=740"
+          src={auth ? "" : demoImg}
           alt="User Profile Picture"
           className="rounded-full h-16 w-16 mb-4 mx-auto"
         />

@@ -4,7 +4,7 @@ const Login = () => {
   const API_URL = import.meta.env.VITE_API_URL;
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center mt-20">
       <div className="bg-gray-200 p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl text-center font-bold mb-4">Login</h2>
         <form className="flex flex-col gap-4">
@@ -28,7 +28,8 @@ const Login = () => {
         </form>
         <div className="text-center my-4">or</div>
         <button
-          className=" bg-white rounded px-4 py-2 font-bold "
+          // style={{border: "1px solid #000"}}
+          className=" bg-white rounded px-4 py-2 font-bold w-full flex justify-center items-center gap-2"
           onClick={() => {
             window.open(API_URL, "_self");
           }}>
