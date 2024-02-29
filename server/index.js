@@ -11,14 +11,14 @@ const connection = require("./config/database");
 const noteRoutes = require("./src/routes/note.routes.js");
 const userRoutes = require("./src/routes/user.routes.js");
 const UserModel = require("./src/models/user.model.js");
+require("dotenv").config()
 
 const app = express();
 const PORT = 4000;
 
 // google client Id and secret :
-const clientId =
-  "143817650055-6d4sn9h6gvfkqp61qcglq6c38vf0q00r.apps.googleusercontent.com";
-const clientSecret = "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";
+const clientId = process.env.CLIENT_ID;
+const clientSecret = process.env.CLIENT_SECRET;
 
 // middleware :
 app.use(express.json());
