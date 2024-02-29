@@ -8,14 +8,18 @@ import LoginPage from "./Components/Login";
 import Login from "./Components/Login";
 import { BrowserRouter } from "react-router-dom";
 import AllRoutes from "./Routes/routes";
+import { Provider } from "react-redux";
+import { store } from "./Redux/store.redux";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <BrowserRouter>
-      <Navbar />
-      <AllRoutes />
+      <Provider store={store}>
+        <Navbar />
+        <AllRoutes />
+      </Provider>
     </BrowserRouter>
   );
 }
