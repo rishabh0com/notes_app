@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 // cors
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.ORIGIN,
     method: "GET, POST, PUT, DELETE",
     credentials: true,
   })
@@ -41,7 +41,7 @@ app.use(
 // setup session :
 app.use(
   session({
-    secret: "sessionSecretforGoogleLogin",
+    secret:process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
   })
