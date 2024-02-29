@@ -11,14 +11,10 @@ const connection = require("./config/database");
 const noteRoutes = require("./src/routes/note.routes.js");
 const userRoutes = require("./src/routes/user.routes.js");
 const UserModel = require("./src/models/user.model.js");
-require("dotenv").config()
+require("dotenv").config();
 
 const app = express();
 const PORT = 4000;
-
-// google client Id and secret :
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
 
 // middleware :
 app.use(express.json());
@@ -41,7 +37,7 @@ app.use(
 // setup session :
 app.use(
   session({
-    secret:process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
   })
@@ -54,8 +50,8 @@ app.use(passport.session());
 passport.use(
   new oAuth2Strategy(
     {
-      clientID: clientId,
-      clientSecret: clientSecret,
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
       callbackURL: "/auth/google/callback",
       scope: ["email", "profile"],
     },
