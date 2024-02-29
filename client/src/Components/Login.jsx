@@ -1,12 +1,8 @@
 import React from "react";
-// import { ReactComponent as GoogleLogo } from "./google_logo.svg";
-// 31121461780 - o52l9ppaac3oeh9fehrhqa86d71b8jtl.apps.googleusercontent.com;
-import { GoogleLogin } from "@react-oauth/google";
 
 const Login = () => {
-  const responseGoogle = (response) => {
+  const API_URL = import.meta.env.VITE_API_URL;
     console.log(response);
-  };
 
   return (
     <div className="flex justify-center items-center h-screen">
@@ -35,7 +31,7 @@ const Login = () => {
         <button
           className=" bg-white rounded px-4 py-2 font-bold "
           onClick={() => {
-            window.open("http://localhost:4000/auth/google/callback", "_self");
+            window.open(API_URL, "_self");
           }}>
           <img
             className="w-6 h-6 inline-block mr-2"
